@@ -12,7 +12,7 @@ def add_contact(args, contacts):
         else:
             return "Contact already exists - can't add."
     except:
-        return "Something went wrong. Likely too many our not enough arguments"
+        return "Something went wrong. Likely too many or not enough arguments"
     
 def change_contact(args, contacts):
     try:
@@ -23,7 +23,7 @@ def change_contact(args, contacts):
         else:
             return "Contact doesn't exist yet - can't change."
     except:
-        return "Something went wrong. Likely too many our not enough arguments"
+        return "Something went wrong. Likely too many or not enough arguments"
 
 def main():
     contacts = {}
@@ -43,6 +43,11 @@ def main():
             print(change_contact(args, contacts))
         elif command == "all":
             print(contacts)
+        elif command == "phone":
+            try:
+                print(contacts[args[0]])
+            except:
+                print("Something went wrong, likely not enough or too many arguments.")
         else:
             print("Invalid command.")
 
